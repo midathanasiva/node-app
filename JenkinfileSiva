@@ -1,7 +1,7 @@
 pipeline {
      agent any
      environment {
-     DOCKER_TAG = getDockerTag()
+           DOCKER_TAG = 1
      
      }
      stages {
@@ -10,8 +10,7 @@ pipeline {
           steps {
                 
                 sh "docker build . -t rvnjssss/nodeapp:${DOCKER_TAG}"
-                
-                
+              
           }
           
        
@@ -20,8 +19,4 @@ pipeline {
      
 }
 
-def getDockerTag()
-{
-def tag = sh script: 'get rev-parse HEAD', returnStdout: true
-return tag
-}
+
